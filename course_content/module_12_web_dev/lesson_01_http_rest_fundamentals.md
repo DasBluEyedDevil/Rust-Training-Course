@@ -308,8 +308,11 @@ struct User {
     email: String,
     active: bool,
 }
+```
 
-// Becomes:
+This becomes:
+
+```json
 {
   "id": 1,
   "name": "Alice",
