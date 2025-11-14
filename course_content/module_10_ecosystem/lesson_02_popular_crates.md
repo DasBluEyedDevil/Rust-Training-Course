@@ -144,7 +144,7 @@ Async runtime for I/O-heavy applications:
 
 ```toml
 [dependencies]
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "1.x", features = ["full"] }
 ```
 
 ```rust
@@ -166,13 +166,13 @@ async fn fetch_data() -> Result<String, Box<dyn std::error::Error>> {
 
 ### **Web Development**
 
-#### axum (0.7)
+#### axum (0.8.x)
 Modern web framework:
 
 ```toml
 [dependencies]
-axum = "0.7"
-tokio = { version = "1", features = ["full"] }
+axum = "0.8.x"
+tokio = { version = "1.x", features = ["full"] }
 ```
 
 ```rust
@@ -183,8 +183,11 @@ async fn main() {
     let app = Router::new()
         .route("/", get(|| async { "Hello, World!" }));
 
-    axum::Server::bind(&"0.0.0.0:3000".parse().unwrap())
-        .serve(app.into_make_service())
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")
+        .await
+        .unwrap();
+
+    axum::serve(listener, app)
         .await
         .unwrap();
 }
@@ -223,12 +226,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ### **Database Access**
 
-#### sqlx (0.7)
+#### sqlx (0.8.x)
 Async SQL toolkit:
 
 ```toml
 [dependencies]
-sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "sqlite"] }
+sqlx = { version = "0.8.x", features = ["runtime-tokio-native-tls", "sqlite"] }
 ```
 
 ```rust

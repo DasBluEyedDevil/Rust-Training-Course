@@ -30,8 +30,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = "0.8"
-tokio = { version = "1", features = ["full"] }
+axum = "0.8.x"
+tokio = { version = "1.x", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 chrono = { version = "0.4", features = ["serde"] }
