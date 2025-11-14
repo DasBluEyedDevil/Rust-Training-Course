@@ -349,4 +349,4 @@ Build your own OS in Rust:
 
 ---
 
-**Progress**: Module 11, Lesson 1 complete (57/60 lessons total)
+**Progress**: Module 11, Lesson 2 complete (69/85 lessons total)

@@ -28,7 +28,7 @@ mod tests {
 
 ```toml
 [dev-dependencies]
-sqlx = { version = "0.8", features = ["runtime-tokio", "postgres"] }
+sqlx = { version = "0.8.x", features = ["runtime-tokio", "postgres"] }
 ```
 
 ```rust

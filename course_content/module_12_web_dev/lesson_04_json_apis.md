@@ -104,6 +104,21 @@ struct TasksResponse {
 // Shared state (we'll improve this with a database later)
 type AppState = Arc<Mutex<Vec<Task>>>;
 
+> **⚠️ IMPORTANT NOTE: Temporary Learning Pattern**
+>
+> The `Arc<Mutex<Vec<Task>>>` pattern you see here is a **temporary tool for in-memory learning**. It is:
+> - ❌ **Difficult to understand** (complex ownership and locking concepts)
+> - ❌ **Performance bottleneck** (locks block other requests)
+> - ❌ **Not production-ready** (data lost on restart, no persistence)
+> - ❌ **Limited scalability** (single-server only, doesn't work with multiple instances)
+>
+> **Don't worry if this feels confusing!** In Module 13, you'll learn the **production-ready solution** using a database (PostgreSQL + SQLx), which is:
+> - ✅ **Much simpler** (no Arc, no Mutex, no manual locking)
+> - ✅ **Much more powerful** (complex queries, transactions, relationships)
+> - ✅ **Production-ready** (persistent data, works with multiple servers)
+>
+> This `Arc<Mutex<T>>` pattern is just a stepping stone to help you understand state management in web servers before introducing databases. Focus on understanding the API patterns (routes, handlers, JSON) rather than mastering Arc/Mutex!
+
 #[tokio::main]
 async fn main() {
     // Initialize state
